@@ -1,0 +1,45 @@
+version: '3'
+services:
+  task-service:
+    build:
+      context: ./task-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - task-db
+      - notification-service
+    networks:
+      - backend
+
+  category-service:
+    build:
+      context: ./category-service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - category-db
+    networks:
+      - backend
+
+  notification-service:
+    build:
+      context: ./notification-service
+    ports:
+      - "5003:5003"
+    networks:
+      - backend
+
+  task-db:
+    image: mongo
+    container_name: task-db
+    networks:
+      - backend
+
+  category-db:
+    image: mongo
+    container_name: category-db
+    networks:
+      - backend
+
+networks:
+  backend:
