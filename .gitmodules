@@ -1,0 +1,9 @@
+[submodule "task-service"]
+	path = task-service
+	url = https://github.com/teams0/task-service.git
+[submodule "category-service"]
+	path = category-service
+	url = https://github.com/teams0/category-service.git
+[submodule "notification-service"]
+	path = notification-service
+	url = https://github.com/teams0/notification-service.git
